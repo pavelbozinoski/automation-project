@@ -1,4 +1,4 @@
-import { UserCredentials } from "./userCredentials";
+import { UserCredentials } from './userCredentials';
 
 export class Users {
   static MarijaStojanovska: UserCredentials = {
@@ -85,13 +85,39 @@ export class Users {
     },
   };
 
-
-
   // generate random user
-  private static firstNames = ['Marija', 'Stefan', 'Elena', 'Kristijan', 'Simona', 'Filip', 'Angela', 'Nikola'];
-  private static lastNames = ['Stojanovska', 'Nikolov', 'Petrovski', 'Ivanovska', 'Mitrevski', 'Kostadinovska', 'Todorov', 'Georgiev'];
-  private static companies = ['Makedonski Kompani', 'Petrovski Inc.', 'Skopje Tech', 'Bitola Solutions'];
-  private static streets = ['Ul. Makedonija 12', 'Ul. Leninova 45', 'Ul. Partizanska 7', 'Ul. Goce Delcev 18'];
+  private static firstNames = [
+    'Marija',
+    'Stefan',
+    'Elena',
+    'Kristijan',
+    'Simona',
+    'Filip',
+    'Angela',
+    'Nikola',
+  ];
+  private static lastNames = [
+    'Stojanovska',
+    'Nikolov',
+    'Petrovski',
+    'Ivanovska',
+    'Mitrevski',
+    'Kostadinovska',
+    'Todorov',
+    'Georgiev',
+  ];
+  private static companies = [
+    'Makedonski Kompani',
+    'Petrovski Inc.',
+    'Skopje Tech',
+    'Bitola Solutions',
+  ];
+  private static streets = [
+    'Ul. Makedonija 12',
+    'Ul. Leninova 45',
+    'Ul. Partizanska 7',
+    'Ul. Goce Delcev 18',
+  ];
   private static cities = ['Skopje', 'Bitola', 'Ohrid', 'Tetovo'];
   private static states = ['Skopje', 'Bitola', 'Ohrid', 'Tetovo'];
   private static countries = ['Canada', 'United States', 'India', 'Singapore'];
@@ -101,7 +127,10 @@ export class Users {
     return list[Math.floor(Math.random() * list.length)];
   }
 
-  private static generateRandomEmail(firstName: string, lastName: string): string {
+  private static generateRandomEmail(
+    firstName: string,
+    lastName: string,
+  ): string {
     const timestamp = Date.now();
     return `${firstName.toLowerCase()}.${lastName.toLowerCase()}${timestamp}@testmail.com`;
   }
@@ -110,10 +139,9 @@ export class Users {
     return {
       day: `${Math.floor(Math.random() * 28) + 1}`,
       month: `${Math.floor(Math.random() * 12) + 1}`,
-      year: `${Math.floor(Math.random() * 30) + 1970}` 
+      year: `${Math.floor(Math.random() * 30) + 1970}`,
     };
   }
-
 
   static get randomUser(): UserCredentials {
     const firstName = this.getRandomElement(this.firstNames);
