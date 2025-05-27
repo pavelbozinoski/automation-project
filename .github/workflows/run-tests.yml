@@ -2,11 +2,9 @@ name: Run Cypress Tests
 
 on:
   push:
-    branches:
-      - dev
+    branches: [main, dev]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   cypress-run:
@@ -14,15 +12,33 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
 
+      - name: Print debug info
+        run: |
+          echo "Printing directory contents:"
+          pwd
+          ls -la
+          echo "Node version:"
+          node -v
+          echo "NPM version:"
+          npm -v
+          echo "Cypress version:"
+          npx cypress --version
+
       - name: Run Cypress tests
-        run: npx cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          headed: false
+          record: false
+          start: npm start
+          wait-on: 'http://localhost:3000' # Adjust if you're running a local app

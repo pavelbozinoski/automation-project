@@ -9,9 +9,9 @@ const loginPage = new LoginPage();
 const signUpPage = new SignupPage();
 
 describe('Test Case 4: Logout User', () => {
- before(() => {
-  ensureAccountExists(Users.PetarIlievski);
-});
+  before(() => {
+    ensureAccountExists(Users.PetarIlievski);
+  });
 
   it('should log in and log out successfully', () => {
     homePage.visitAndVerifyHomePageIsVisible();

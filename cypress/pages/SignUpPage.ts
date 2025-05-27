@@ -1,10 +1,8 @@
 import { UserCredentials } from '../elements/access-users/userCredentials';
 
 export class SignupPage {
-
   verifyNewUserSignupVisible() {
-    cy.contains('New User Signup!')
-    .should('be.visible');
+    cy.contains('New User Signup!').should('be.visible');
   }
 
   enterName(name: string) {
@@ -16,37 +14,29 @@ export class SignupPage {
   }
 
   clickSignupButton() {
-    cy.intercept('POST', '**/signup').as('signupRequest'); 
+    cy.intercept('POST', '**/signup').as('signupRequest');
     cy.get('button[data-qa="signup-button"]').click();
     cy.wait('@signupRequest');
   }
 
   verifyAccountInformationVisible() {
-    cy.contains('Enter Account Information')
-    .should('be.visible');
+    cy.contains('Enter Account Information').should('be.visible');
   }
 
   fillSignupForm(user: UserCredentials) {
-    // Title
-    cy.get('#id_gender1').check(); // Assuming Mr.
+    cy.get('#id_gender1').check(); // MR
 
-    // Personal info
-    cy.get('#name')
-    .should('have.value', user.name);
-    cy.get('#email')
-    .should('have.value', user.email);
+    cy.get('#name').should('have.value', user.name);
+    cy.get('#email').should('have.value', user.email);
     cy.get('#password').type(user.password);
 
-    // Date of birth
     cy.get('#days').select(user.dob.day);
     cy.get('#months').select(user.dob.month);
     cy.get('#years').select(user.dob.year);
 
-    // Checkboxes
     cy.get('#newsletter').check();
     cy.get('#optin').check();
 
-    // Address info
     cy.get('#first_name').type(user.firstName);
     cy.get('#last_name').type(user.lastName);
     cy.get('#company').type(user.company);
@@ -59,26 +49,28 @@ export class SignupPage {
     cy.get('#mobile_number').type(user.mobileNumber);
   }
 
-   signupWithUser(user: UserCredentials) {
+  signupWithUser(user: UserCredentials) {
     this.enterName(user.name);
     this.enterEmail(user.email);
   }
 
   clickCreateAccountButton() {
     cy.get('button[data-qa="create-account"]').click();
-    cy.url()
-    .should('include', '/account_created');
+    cy.url().should('include', '/account_created');
   }
 
   verifyAccountCreated() {
-    cy.get('[data-qa="account-created"]')
-    .should('contain.text', 'Account Created!');
+    cy.get('[data-qa="account-created"]').should(
+      'contain.text',
+      'Account Created!',
+    );
   }
 
   verifyEmailAlreadyExistsError() {
-  cy.get('.signup-form').find('p')
-  .should('have.text', 'Email Address already exist!')
-}
+    cy.get('.signup-form')
+      .find('p')
+      .should('have.text', 'Email Address already exist!');
+  }
 
   clickContinueButton() {
     cy.get('a[data-qa="continue-button"]').click();

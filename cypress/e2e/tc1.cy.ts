@@ -15,15 +15,15 @@ describe('Test Case 1: Register User', () => {
     homePage.clickSignupLogin();
 
     signUpPage.verifyNewUserSignupVisible();
-    signUpPage.signupWithUser(user)
+    signUpPage.signupWithUser(user);
     signUpPage.clickSignupButton();
-    
+
     signUpPage.verifyAccountInformationVisible();
 
     signUpPage.fillSignupForm(user);
     signUpPage.clickCreateAccountButton();
 
-    signUpPage.verifyAccountCreated(); 
+    signUpPage.verifyAccountCreated();
     signUpPage.clickContinueButton();
 
     homePage.verifyLoggedInAs(user.name);
@@ -33,7 +33,7 @@ describe('Test Case 1: Register User', () => {
 
     homePage.clickDeleteAccount();
     homePage.verifyAccountDeleted();
-    
+
     homePage.verifyLogoutIsNotVisible();
     homePage.verifyDeleteAccountIsNotVisible();
     homePage.verifySignUpLoginIsVisible();

@@ -1,7 +1,6 @@
 import { UserCredentials } from '../elements/access-users/userCredentials';
 
-export class LoginPage{
-
+export class LoginPage {
   visit() {
     cy.visit('/login');
   }
@@ -26,13 +25,12 @@ export class LoginPage{
   }
 
   verifyLoginToYourAccountIsVisible() {
-  cy.get('h2:contains("Login to your account")')
-  .should('be.visible');
-}
+    cy.get('h2:contains("Login to your account")').should('be.visible');
+  }
 
-  verifyIncorrectCredentialsErrorMessage(){
-    cy.get('.signup-form').find('p')
-    .should('have.text', 'Your email or password is incorrect!')
-    .should('be.visible');
+  verifyIncorrectCredentialsErrorMessage() {
+    cy.contains('p', 'Your email or password is incorrect!')
+      .should('be.visible')
+      .should('have.css', 'color', 'rgb(255, 0, 0)');
   }
 }

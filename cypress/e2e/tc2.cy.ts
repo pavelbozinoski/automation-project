@@ -10,19 +10,15 @@ const homePage = new HomePage();
 
 describe('Test Case 2: Login User with correct email and password', () => {
   before(() => {
-    ensureAccountExists(Users.PetarIlievski);
+    ensureAccountExists(Users.MarijaStojanovska);
   });
 
   it('should log in user with correct credentials and delete account', () => {
-    homePage.visitAndVerifyHomePageIsVisible
+    homePage.visitAndVerifyHomePageIsVisible;
     homePage.clickSignupLogin();
     homePage.loginFormIsVisible();
 
-    loginPage.enterEmail(Users.MarijaStojanovska.email);
-    loginPage.enterPassword(Users.MarijaStojanovska.password);
-
-    loginPage.clickLoginButton();
-
+    loginPage.loginWithUser(Users.MarijaStojanovska);
     homePage.verifyLogoutIsVisible();
     homePage.verifySignUpLoginIsNotVisible();
 
