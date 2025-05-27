@@ -1,5 +1,5 @@
-import { HomePage } from '@/pages/homePage';
-import { TestCasesPage } from '@/pages/testCases';
+import { HomePage } from '../pages/HomePage';
+import { TestCasesPage } from '../pages/TestCases';
 
 const homePage = new HomePage();
 const testCases = new TestCasesPage();

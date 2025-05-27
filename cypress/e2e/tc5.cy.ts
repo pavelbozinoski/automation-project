@@ -1,7 +1,7 @@
-import { HomePage } from '@/pages/HomePage';
-import { SignupPage } from '@/pages/SignUpPage';
-import { Users } from '@/elements/access-users/users';
-import { ensureAccountExists } from '@/support/utils/accountUtils';
+import { HomePage } from '../pages/HomePage';
+import { SignupPage } from '../pages/SignUpPage';
+import { Users } from '../elements/access-users/users';
+import { ensureAccountExists } from '../support/utils/accountUtils';
 
 const homePage = new HomePage();
 const signUpPage = new SignupPage();

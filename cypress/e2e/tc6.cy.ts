@@ -1,5 +1,5 @@
 import { ContactUsPage } from '../pages/contactUsPage';
-import { HomePage } from '../pages/homePage';
+import { HomePage } from '../pages/HomePage';
 import { Users } from '../elements/access-users/users';
 import '../support/commands';
 

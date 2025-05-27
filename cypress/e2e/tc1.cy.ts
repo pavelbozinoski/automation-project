@@ -1,7 +1,7 @@
-import { HomePage } from '@/pages/homePage';
-import { SignupPage } from '@/pages/SignUpPage';
+import { HomePage } from '../pages/HomePage';
+import { SignupPage } from '../pages/SignUpPage';
 import { Users } from '../elements/access-users/users';
-import { LoginPage } from '@/pages/LoginPage';
+import { LoginPage } from '../pages/LoginPage';
 
 const signUpPage = new SignupPage();
 const loginPage = new LoginPage();

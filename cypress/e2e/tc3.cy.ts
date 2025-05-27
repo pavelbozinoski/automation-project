@@ -1,5 +1,5 @@
-import { LoginPage } from '@/pages/LoginPage';
-import { HomePage } from '../pages/homePage';
+import { LoginPage } from '../pages/LoginPage';
+import { HomePage } from '../pages/HomePage';
 import { Users } from '../elements/access-users/users';
 
 const loginPage = new LoginPage();

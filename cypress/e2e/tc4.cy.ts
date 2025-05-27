@@ -1,8 +1,8 @@
-import { HomePage } from '@/pages/HomePage';
-import { LoginPage } from '@/pages/LoginPage';
+import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../pages/LoginPage';
 import { Users } from '../elements/access-users/users';
-import { SignupPage } from '@/pages/SignUpPage';
-import { ensureAccountExists } from '@/support/utils/accountUtils';
+import { SignupPage } from '../pages/SignUpPage';
+import { ensureAccountExists } from '../support/utils/accountUtils';
 
 const homePage = new HomePage();
 const loginPage = new LoginPage();
